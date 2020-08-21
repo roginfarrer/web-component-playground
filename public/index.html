@@ -4,24 +4,54 @@
     <meta charset="utf-8" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Web site created using create-snowpack-app" />
+    <meta
+      name="description"
+      content="Web site created using create-snowpack-app"
+    />
     <link rel="stylesheet" type="text/css" href="/index.css" />
     <title>Snowpack App</title>
+    <style>
+      .block {
+        margin: 0 auto;
+        padding: 100px 0;
+      }
+      .block:nth-child(2n) {
+        background-color: #efefef;
+      }
+      .subblock {
+        display: flex;
+      }
+      .component {
+        flex: 50%;
+      }
+      .controls {
+        flex: 50%;
+      }
+    </style>
   </head>
   <body>
-    <img id="img" src="/logo.svg" />
-    <canvas id="canvas"></canvas>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <script type="module" src="/_dist_/index.js"></script>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <div class="block">
+      <h2>Button</h2>
+      <my-button id="foo" type="button">toggle</my-button>
+      <span id="hello-world" hidden>Hello, world!</span>
+    </div>
+    <div class="block">
+      <h2>Input</h2>
+      <div class="subblock">
+        <div class="component">
+          <my-input label="Label!"></my-input>
+          <div id="input-value"></div>
+        </div>
+        <div class="controls">
+          <label
+            ><span id="labelChanger-label">input label</span>
+            <input type="text" id="label-changer" />
+          </label>
+          <label><input type="checkbox" id="input-disabled" />Disabled</label>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
